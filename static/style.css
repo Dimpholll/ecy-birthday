@@ -774,3 +774,51 @@ body.final-mode .card:nth-child(3) { animation-delay: 1s; }
         height: 62vh;                  /* a bit taller so the greeting has room */
     }
 }
+
+/* ---- phone fixes: lamp + candle scenes ---- */
+@media (max-width: 800px) {
+
+    /* lamp scene: text on top, lamp underneath, centered */
+    .lamp-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        width: 100%;
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+
+    #message {
+        margin: 0;
+        text-align: center;
+        font-size: clamp(24px, 7vw, 32px);
+        line-height: 1.35;
+    }
+
+    /* the small candle sits in the top-left corner, a bit tighter */
+    .pickup {
+        top: 20px;
+        left: 20px;
+    }
+
+    /* candle scene: centered title with side padding */
+    .candle-scene {
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+
+    #sceneTitle {
+        text-align: center;
+        font-size: clamp(30px, 9vw, 44px);
+        line-height: 1.25;
+        margin: 0;
+    }
+
+    /* countdown, and "Tap the candle to blow!" if there's no mic */
+    .count {
+        font-size: 44px;
+        text-align: center;
+        padding: 0 16px;
+        min-height: 110px;
+    }
+}
