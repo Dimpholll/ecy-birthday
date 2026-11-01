@@ -746,3 +746,31 @@ body.final-mode .card:nth-child(3) { animation-delay: 1s; }
     from { opacity: 1; transform: translate(-50%, -50%); }
     to   { opacity: 0; transform: translate(-50%, -90px) scale(1.4); }
 }
+
+/* ---- phone fixes ---- */
+@media (max-width: 800px) {
+    .birthday-scene {
+        justify-content: flex-start;   /* stops the top from being cut off */
+        padding: 16px 16px 110px;      /* room at the bottom for the gift button */
+    }
+
+    .proceed-btn {
+        position: fixed;               /* stays at the bottom, off the video */
+        top: auto;
+        right: auto;
+        left: 50%;
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        padding: 12px 22px;
+        font-size: 15px;
+        white-space: nowrap;
+        background: rgba(120, 20, 50, 0.85);
+    }
+    .proceed-btn:hover {
+        transform: translateX(-50%) scale(1.03);
+    }
+
+    .bd-tree {
+        height: 62vh;                  /* a bit taller so the greeting has room */
+    }
+}
