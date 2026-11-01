@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello My Adi &#128536; &#127873; &#127881;</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital@1&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="lamp-container">
+
+        <h2 id="message">Its dark ... <br> Can you open the light, Please</h2>
+
+        <div class="lamp" id="lamp">
+            <div class="shade"></div>
+            <div class="string" onclick="toggleLamp()"></div>
+            <div class="pole"></div>
+            <div class="base"></div>
+        </div>
+
+        <div class="pickup" id="pickup">
+            <span class="grab-text">grab me</span>
+            <div class="mini-candle">
+                <div class="flame"></div>
+                <div class="wick"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="candle-scene" id="candleScene">
+        <h1 id="sceneTitle">Someone made you something special.</h1>
+
+        <div class="candle" id="candle">
+            <div class="big-flame" id="bigFlame"></div>
+            <div class="big-wick"></div>
+        </div>
+
+        <p class="count" id="count"></p>
+
+        <button class="light-btn" id="lightBtn">Light the candle</button>
+    </section>
+
+    <section class="birthday-scene" id="birthdayScene">
+
+        <button class="proceed-btn" id="proceedBtn">I have a gift for you →</button>
+
+        <div class="bd-video">
+            <video id="bdVideo" src="{{ url_for('static', filename='video.mp4') }}" muted loop playsinline></video>
+        </div>
+
+        <div class="bd-content">
+            <p class="bd-small top">Hope your wish come true...</p>
+
+            <div class="bd-tree">
+                <iframe id="bdTreeFrame" data-src="{{ url_for('wishes') }}"
+                        title="Wishing Tree" style="border:0; width:100%; height:100%;"></iframe>
+            </div>
+
+            <p class="bd-small bottom">to someone worth celebrating with</p>
+        </div>
+
+    </section>
+
+    <section class="final-scene" id="finalScene">
+        <h2 class="final-title">Just for you</h2>
+
+        <div class="cards">
+
+            <div class="card" data-modal="musicModal">
+                <img src="{{ url_for('static', filename='music.jpg') }}" class="card-img" alt="Music">
+            </div>
+
+            <div class="card" data-modal="flowersModal">
+                <img src="{{ url_for('static', filename='flower.jpg') }}" class="card-img" alt="Flowers">
+            </div>
+
+            <div class="card" data-modal="heartModal">
+                <img src="{{ url_for('static', filename='heart.jpg') }}" class="card-img" alt="Heart">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MUSIC popup -->
+    <div class="modal" id="musicModal">
+        <div class="modal-box">
+            <button class="modal-close">✕</button>
+            <div class="disc" id="disc"></div>
+            <h3>The only exception</h3>
+            <p>I love You</p>
+            <button class="music-btn" id="playBtn">▶ Play</button>
+        </div>
+    </div>
+
+    <!-- FLOWERS popup: bouquet -->
+<div class="modal" id="flowersModal">
+    <div class="modal-box flower-box">
+        <button class="modal-close">✕</button>
+        <p id="flowerNote">Tap each tulip to make it bloom 🌷</p>
+
+        <div class="bq">
+            <svg class="bq-svg" viewBox="0 0 320 420">
+                <defs>
+                    <linearGradient id="leafG" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#7ccf84"/>
+                        <stop offset="1" stop-color="#2f7d46"/>
+                    </linearGradient>
+                    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#fff" stop-opacity=".5"/>
+                        <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paperG" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#fde8e4"/>
+                        <stop offset="1" stop-color="#f3a8c0"/>
+                    </linearGradient>
+                    <linearGradient id="paperBackG" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#d9708f"/>
+                        <stop offset="1" stop-color="#b94d74"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- leaves -->
+                <path d="M160 335 C96 310 52 250 58 190 C104 222 148 280 160 335Z" fill="url(#leafG)"/>
+                <path d="M160 335 C224 310 268 250 262 190 C216 222 172 280 160 335Z" fill="url(#leafG)"/>
+                <path d="M160 335 C120 300 100 240 118 175 C140 225 156 280 160 335Z" fill="#4fa05b"/>
+                <path d="M160 335 C200 300 220 240 202 175 C180 225 164 280 160 335Z" fill="#4fa05b"/>
+                <path d="M160 335 C110 290 78 245 62 197" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                <path d="M160 335 C210 290 242 245 258 197" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+
+                <!-- filler sprigs -->
+                <g fill="none" stroke="#5aa564" stroke-width="1.6" stroke-linecap="round">
+                    <path d="M160 330 C120 290 70 270 38 238"/>
+                    <path d="M160 330 C200 290 250 270 282 238"/>
+                </g>
+                <g fill="#fff">
+                    <circle cx="38" cy="238" r="4"/><circle cx="30" cy="226" r="3.2"/>
+                    <circle cx="46" cy="226" r="3"/><circle cx="24" cy="240" r="2.6"/><circle cx="50" cy="244" r="3"/>
+                    <circle cx="282" cy="238" r="4"/><circle cx="290" cy="226" r="3.2"/>
+                    <circle cx="274" cy="226" r="3"/><circle cx="296" cy="240" r="2.6"/><circle cx="270" cy="244" r="3"/>
+                </g>
+                <g fill="#ffc2d6">
+                    <circle cx="36" cy="214" r="2.6"/><circle cx="284" cy="214" r="2.6"/>
+                </g>
+
+                <!-- paper: back sheet -->
+                <path d="M64 234 Q160 204 256 234 L160 410 Z" fill="url(#paperBackG)"/>
+
+                <!-- tulips (outer ones first, tall center last) -->
+
+                <g transform="translate(160 330) rotate(-32)">
+                    <g class="bq-tulip" style="--c1:#ff93b5; --c2:#e0457a; --d:0s">
+                        <path class="stem" d="M0 0 C5 -65 -5 -130 0 -185"/>
+                        <g transform="translate(0 -185) rotate(16)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(32)">
+                    <g class="bq-tulip" style="--c1:#ff6fa8; --c2:#c92d6e; --d:0.6s">
+                        <path class="stem" d="M0 0 C5 -64 -5 -127 0 -182"/>
+                        <g transform="translate(0 -182) rotate(-16)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(-21)">
+                    <g class="bq-tulip" style="--c1:#ffe07a; --c2:#f2b01e; --d:1.2s">
+                        <path class="stem" d="M0 0 C-5 -75 5 -150 0 -215"/>
+                        <g transform="translate(0 -215) rotate(10)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(21)">
+                    <g class="bq-tulip" style="--c1:#fff6f2; --c2:#e0b9b0; --d:1.8s">
+                        <path class="stem" d="M0 0 C-5 -74 5 -148 0 -212"/>
+                        <g transform="translate(0 -212) rotate(-10)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(-10)">
+                    <g class="bq-tulip" style="--c1:#c9a0ff; --c2:#8f4fd0; --d:0.9s">
+                        <path class="stem" d="M0 0 C5 -86 -5 -172 0 -245"/>
+                        <g transform="translate(0 -245) rotate(5)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(10)">
+                    <g class="bq-tulip" style="--c1:#ffbe96; --c2:#ff7d52; --d:1.5s">
+                        <path class="stem" d="M0 0 C4 -84 -4 -168 0 -240"/>
+                        <g transform="translate(0 -240) rotate(-5)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <g transform="translate(160 330) rotate(0)">
+                    <g class="bq-tulip" style="--c1:#ff6a7a; --c2:#c9243f; --d:0.3s">
+                        <path class="stem" d="M0 0 C-4 -92 4 -183 0 -262"/>
+                        <g transform="translate(0 -262)">
+                            <circle cx="0" cy="-32" r="30" fill="transparent"/>
+                            <path class="p-back"  d="M0 0 C-22 -4 -25 -38 -7 -62 C-3 -56 3 -56 7 -62 C25 -38 22 -4 0 0Z"/>
+                            <path class="p-left"  d="M0 0 C-21 -4 -23 -36 -8 -60 C-2 -44 2 -22 0 0Z"/>
+                            <path class="p-right" d="M0 0 C21 -4 23 -36 8 -60 C2 -44 -2 -22 0 0Z"/>
+                            <path class="p-front" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z"/>
+                            <path class="p-shine" d="M0 0 C-13 -6 -14 -38 0 -66 C14 -38 13 -6 0 0Z" fill="url(#shine)"/>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- paper: front sheet -->
+                <path d="M64 234 Q160 262 256 234 L160 410 Z" fill="url(#paperG)"/>
+                <path d="M160 262 L256 234 L160 410 Z" fill="#fff" fill-opacity=".22"/>
+                <path d="M64 234 Q112 254 160 262 L160 410 Z" fill="#000" fill-opacity=".05"/>
+
+                <!-- ribbon -->
+                <path d="M94.5 290 Q160 302 225.5 290 L216.7 306 Q160 318 103.3 306 Z" fill="#e8466a"/>
+
+                <!-- bow -->
+                <path d="M158 304 C150 332 138 346 124 362 L138 368 C152 352 164 336 166 308Z" fill="#d63a66"/>
+                <path d="M162 304 C170 332 182 346 196 362 L182 368 C168 352 156 336 154 308Z" fill="#d63a66"/>
+                <path d="M160 300 C128 268 96 292 120 312 C134 322 152 310 160 300Z" fill="#ee5b82"/>
+                <path d="M160 300 C192 268 224 292 200 312 C186 322 168 310 160 300Z" fill="#ee5b82"/>
+                <ellipse cx="160" cy="303" rx="9" ry="8" fill="#c42a55"/>
+            </svg>
+        </div>
+    </div>
+</div>
+    <!-- HEART popup: your message -->
+    <div class="modal" id="heartModal">
+        <div class="modal-box message-box">
+            <button class="modal-close">✕</button>
+            <p class="message-text">Happy Birthday My Adiel!
+
+            Thank you for being the person I want to tell everything to.
+
+            I hope this year is gentle with you and full of the things that make you smile.
+
+            I love you!</p>
+        </div>
+    </div>
+
+    <audio id="bdSong" src="{{ url_for('static', filename='line_without_a_hook.mp3') }}" preload="auto" loop></audio>
+    <audio id="herSong" src="{{ url_for('static', filename='only_exception.mp3') }}" preload="auto" loop></audio>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
